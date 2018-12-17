@@ -4,8 +4,8 @@ NOTE: This is NOT rosegraphics -- it is your OWN Line class.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Jacob Jarski.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import math
 import m1t_test_Line as m1t
@@ -17,7 +17,7 @@ import m1t_test_Line as m1t
 ###############################################################################
 
 # -----------------------------------------------------------------------------
-# TODO: 2.  Right-click on the  src  folder and
+# DONE: 2.  Right-click on the  src  folder and
 #               Mark Directory as ... Sources Root,
 #           if you have not already done so.
 #
@@ -178,6 +178,8 @@ class Line(object):
     """ Represents a line segment in 2-dimensional space. """
 
     def __init__(self, start, end):
+        self.start = start.clone()
+        self.end = end.clone()
         """
         What comes in:
           -- self
@@ -217,7 +219,7 @@ class Line(object):
           :type end:   Point
         """
         # ---------------------------------------------------------------------
-        # TODO: 3.
+        # DONE: 3.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -227,6 +229,8 @@ class Line(object):
         # ---------------------------------------------------------------------
 
     def __repr__(self):
+
+
         """
         What comes in:
           -- self
@@ -297,6 +301,8 @@ class Line(object):
         return (self.start == line2.start) and (self.end == line2.end)
 
     def clone(self):
+        clone = Line(self.start, self.end)
+        return clone
         """
         What comes in:
           -- self
@@ -326,7 +332,7 @@ class Line(object):
           :rtype: Line
         """
         # ---------------------------------------------------------------------
-        # TODO: 4.
+        # DONE: 4.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -336,6 +342,10 @@ class Line(object):
         # ---------------------------------------------------------------------
 
     def reverse(self):
+        reversestart = self.end
+        reverseend = self.start
+        self.start = reversestart
+        self.end = reverseend
         """
         What comes in:
           -- self
@@ -360,7 +370,7 @@ class Line(object):
             print(line1 == line2)    # Should now print: True
         """
         # ---------------------------------------------------------------------
-        # TODO: 5.
+        # DONE: 5.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -370,6 +380,13 @@ class Line(object):
         # ---------------------------------------------------------------------
 
     def slope(self):
+        slopex = (self.end.x-self.start.x)
+        slopey = (self.end.y-self.start.y)
+        if slopex == 0:
+            return math.inf
+        else:
+             return slopey/slopex
+
         """
         What comes in:
           -- self
