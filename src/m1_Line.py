@@ -180,6 +180,8 @@ class Line(object):
     def __init__(self, start, end):
         self.start = start.clone()
         self.end = end.clone()
+        self.timescloned = 0
+
         """
         What comes in:
           -- self
@@ -301,6 +303,7 @@ class Line(object):
         return (self.start == line2.start) and (self.end == line2.end)
 
     def clone(self):
+        self.timescloned = self.timescloned + 1
         clone = Line(self.start, self.end)
         return clone
         """
@@ -413,7 +416,7 @@ class Line(object):
           :rtype: float
         """
         # ---------------------------------------------------------------------
-        # TODO: 6.
+        # DONE: 6.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -423,6 +426,8 @@ class Line(object):
         # ---------------------------------------------------------------------
 
     def length(self):
+        length = math.sqrt(((self.start.x- self.end.x) ** 2) + ((self.start.y - self.end.y) ** 2))
+        return length
         """
         What comes in:
           -- self
@@ -446,7 +451,7 @@ class Line(object):
           :rtype: float
         """
         # ---------------------------------------------------------------------
-        # TODO: 7.
+        # DONE: 7.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -456,6 +461,7 @@ class Line(object):
         # ---------------------------------------------------------------------
 
     def get_number_of_clones(self):
+        return self.timescloned
         """
         What comes in:
           -- self
