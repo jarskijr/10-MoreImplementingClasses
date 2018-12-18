@@ -179,7 +179,9 @@ class Line(object):
 
     def __init__(self, start, end):
         self.start = start.clone()
+        self.originalstart = start.clone()
         self.end = end.clone()
+        self.originalend = end.clone()
         self.timescloned = 0
 
         """
@@ -692,6 +694,8 @@ class Line(object):
         #######################################################################
 
     def reset(self):
+        self.start = self.originalstart
+        self.end = self.originalend
         """
         What comes in:
           -- self
