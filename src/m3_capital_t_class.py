@@ -305,7 +305,7 @@ class CapitalT(object):
           :rtype: CapitalT
         """
         # ---------------------------------------------------------------------
-        # TODO: 7.
+        # DONE: 7.
         #   READ the above specification, including the Example.
         #   Implement this method, then TEST it by:
         #     a. Un-comment the call to its test function, in main.  Run.
@@ -319,6 +319,10 @@ class CapitalT(object):
         #######################################################################
 
 
+        return CapitalT(self.h_rect.get_center(),
+                        self.h_rect.get_upper_right_corner().x - self.h_rect.get_upper_left_corner().x,
+                        self.v_rect.get_lower_right_corner().y - self.v_rect.get_upper_right_corner().y,
+                        self.h_rect.get_upper_right_corner().y - self.h_rect.get_lower_right_corner().y)
 
 
 
